@@ -15,6 +15,7 @@
  :post-date-format   "yyyy-MM-dd"
  :sass-src           nil
  :sass-dest          nil
+ ; micahelliott.com
  :theme              "wiaa"
  :resources          ["img"]
  :keep-files         [".git" "favicon.png" "pubkey.mde@micahelliott.com.gpg.asc" "robots.txt"]
