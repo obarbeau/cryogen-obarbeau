@@ -1,3 +1,6 @@
+
+;; cf http://blog.fikesfarm.com/ qui a la navbar fixed
+
 {:site-title         "My Awesome Blog"
  :author             "Bob Bobbert"
  :description        "Blog about Clojure and various thoughts."
