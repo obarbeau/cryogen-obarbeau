@@ -1,4 +1,4 @@
-(defproject cryogen "0.1.0"
+(defproject cryogen "0.2.0"
             :description "Simple static site generator"
             :url "https://github.com/lacarmen/cryogen"
             :license {:name "Eclipse Public License"
