@@ -2,7 +2,7 @@
 ;; cf http://blog.fikesfarm.com/ qui a la navbar fixed
 
 {:site-title         "My Awesome Blog"
- :author             "Bob Bobbert"
+ :author             "Olivier Barbeau"
  :description        "Blog about Clojure and various thoughts."
  :site-url           "http://blogawesome.com/"
  :post-root          "posts"
@@ -19,6 +19,7 @@
  :sass-src           nil
  :sass-dest          nil
  ; micahelliott.com
+ ; la base du thème c'est bootstrap
  :theme              "wiaa"
  :resources          ["img"]
  :keep-files         [".git" "favicon.png" "pubkey.mde@micahelliott.com.gpg.asc" "robots.txt"]

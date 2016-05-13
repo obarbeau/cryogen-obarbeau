@@ -3,6 +3,7 @@
  :page-index 0
  :navbar? true}
 
-## Write something about something
-
-wow wow wow
+>Before, I was complaining against Java and its tooling.
+Now I have Clojure.
+I still complain, for not having discovered it earlier.
+>-me

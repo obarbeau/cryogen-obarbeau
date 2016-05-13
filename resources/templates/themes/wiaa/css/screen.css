@@ -2,9 +2,8 @@ code {
   font-family: monospace;
 }
 
-/*
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Alegreya';
+    font-family: 'Averia Libre', 'Linux Libertine Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -13,6 +12,7 @@ body {
     font-family: 'Linux Libertine Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 16px;
 }
+
 
 .container {
     max-width: 1000px;
@@ -35,7 +35,7 @@ body {
 
 .navbar-default .navbar-brand {
     color: #fff;
-    font-family: 'Alegreya';
+    font-family: 'Averia Libre';
 }
 
 .navbar-default .navbar-brand:hover {
@@ -87,6 +87,13 @@ footer {
     padding-bottom: 30px;
 }
 
+/* pour annuler l'action de footer ci-dessus lorsqu'il s'agit d'une citation */
+blockquote .small, blockquote footer, blockquote small {
+    padding: 0;
+    text-align: left;
+    font-size: 100%;
+}
+
 #post-tags {
     margin-top: 30px;
 }
@@ -95,6 +102,10 @@ footer {
     padding: 15px 0;
 }
 
+.post-excerpt {
+  margin-bottom: 20px;
+  font-style: italic;
+}
 .post-header {
     margin-bottom: 20px;
 }
@@ -129,6 +140,7 @@ code {
 
 pre, code, .hljs {
     background-color: #f7f9fd;
+    font-size: 70%;
 }
 
 @media (min-width: 768px) {
@@ -162,4 +174,4 @@ pre, code, .hljs {
         float:left;
         text-align: left;
     }
-}*/
+}/**/

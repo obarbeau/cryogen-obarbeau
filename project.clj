@@ -7,10 +7,16 @@
                            [ring/ring-devel "1.4.0"]
                            [compojure "1.5.0"]
                            [ring-server "0.4.0"]
-                           [cryogen-markdown "0.1.2"]
-                           [cryogen-core "0.1.39"]]
+                           ; [cryogen-markdown "0.1.2"]       ; uses yogthos/markdown-clj
+                           [cryogen-extra "1.0.0"]
+                           [cryogen-core "0.1.40"]]
             :plugins [[lein-ring "0.9.7"]]
             :main cryogen.core
             :ring {:init cryogen.server/init
                    :handler cryogen.server/handler})
 ; http://www.gravatar.com/avatar/ec6f7490f93e67769305e34f88652035.png?s=200
+
+; le site static est généré dans /home/olivier/dev/data/obarbeau.github
+; grâce à un lien depuis resources/public
+; Ne RIEN éditer directement dans ce répertoire.
+; certains fichiers et répertoires ne seront pas effacés (dont .git)
