@@ -3,13 +3,13 @@ code {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Averia Libre', 'Linux Libertine Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Averia Libre', 'Linux Libertine', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 body {
     color: #333;
     background-color: #f2f2f2;
-    font-family: 'Linux Libertine Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Linux Libertine', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 16px;
 }
 
