@@ -48,7 +48,7 @@ Remember that the JavaScript compilation will not be automatic
 during the uberjar build.
 
 No doubt a hook can be added to the workflow,
-but in the meantime I recommend using [cuttle][1],
+but in the meantime I recommend using [`cuttle`][1]
 defined itself as an _User Interface for the ClojureScript Compiler_,
 to keep an eye on the JS compilation status.
 

@@ -14,9 +14,3 @@
             :main cryogen.core
             :ring {:init cryogen.server/init
                    :handler cryogen.server/handler})
-; http://www.gravatar.com/avatar/ec6f7490f93e67769305e34f88652035.png?s=200
-
-; le site static est généré dans /home/olivier/dev/data/obarbeau.github
-; grâce à un lien depuis resources/public
-; Ne RIEN éditer directement dans ce répertoire.
-; certains fichiers et répertoires ne seront pas effacés (dont .git)

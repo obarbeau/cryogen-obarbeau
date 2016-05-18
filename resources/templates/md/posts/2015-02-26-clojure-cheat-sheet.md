@@ -2,7 +2,8 @@
 :layout :post
 :excerpt "Notes on classic functions."
 :tags  ["clojure" "leiningen"]
-:toc true}
+:toc true
+:draft? true}
 
 separation of concerns=responsabilité et dépendances entre composants
 clairement définies.

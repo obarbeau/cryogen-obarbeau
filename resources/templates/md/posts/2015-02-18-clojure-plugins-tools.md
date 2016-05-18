@@ -20,14 +20,13 @@ There are two ways to add a plugin:
 
 1. globally in `~/.lein/profiles.clj`.
   The plugin will be available for all projects.
-1. For a particular project, in its `project.clj`.
+2. For a particular project, in its `project.clj`.
 
 Keep in mind that all plugins specified in `profiles.clj`
 and thus loaded at the same time than the REPL
 may interfere with it,
 because they affect the initial classpath,
 which is different from the project classpath.
-{: .notice}
 
 &#x2799; I recommend to add these plugins directly in projects (`project.clj`)
 when required.

@@ -22,7 +22,7 @@ without the need to reload the namespace in the REPL.
 I have not yet chosen between Dimple.js and Epoch
 for the display part.
 
-Finally, [doric][6] helps me to show my data in chart form in
+Finally, [`doric`][6] helps me to show my data in chart form in
 the REPL, which is appreciable.
 
 Of course the IDE I use is [Light Table][7], a must :-)

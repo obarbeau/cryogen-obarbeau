@@ -21,9 +21,11 @@ git branch master --set-upstream-to=origin/master
 ```
 
 The history is preserved.
+
 If some branches had existed,
 it would have been necessary to pull them first to the local repo and then push
 them to the new one.
+
 See this [post][3] for more information.
 
 This project needs some refactoring and documentation, I'll do it ASAP...
