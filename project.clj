@@ -1,4 +1,4 @@
-(defproject cryogen "0.2.0"
+(defproject cryogen-obarbeau "0.2.0"
             :description "Simple static site generator"
             :url "https://github.com/lacarmen/cryogen"
             :license {:name "Eclipse Public License"
@@ -7,8 +7,7 @@
                            [ring/ring-devel "1.4.0"]
                            [compojure "1.5.0"]
                            [ring-server "0.4.0"]
-                           ; [cryogen-markdown "0.1.2"]       ; uses yogthos/markdown-clj
-                           [cryogen-extra "1.0.0"]
+                           [cryogen-markdown "0.1.3"]
                            [cryogen-core "0.1.40"]]
             :plugins [[lein-ring "0.9.7"]]
             :main cryogen.core
