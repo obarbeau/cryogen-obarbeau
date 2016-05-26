@@ -1,64 +1,36 @@
-{:title "Clojure - Cheat Sheet"
+{:title "Clojure core functions - Cheat Sheet"
 :layout :post
-:excerpt "Notes on classic functions."
-:tags  ["clojure" "leiningen"]
+:excerpt "My notes on classic Clojure functions."
+:tags  ["clojure"]
 :toc true
-:draft? true}
+:draft? false}
 
-separation of concerns=responsabilité et dépendances entre composants
-clairement définies.
+Here are some useful Clojure core functions along with examples
+ and MathML notation for fun.
 
-```clojure
-(def jay {:name "jay fields" :employer "drw"})
-(def mike {:name "mike jones" :employer "forward"})
-(def john {:name "john dydo" :employer "drw"})
+Nothing new under the sun, but these notes had been dragging on
+for a long time in my drafts, so it was time to share them!
 
-(clojure.set/index [jay mike john] [:employer])
-
-{{:employer "forward"} #{{:name "mike jones", :employer "forward"}},
-{:employer "drw"} #{{:name "john dydo", :employer "drw"}
-{:name "jay fields", :employer "drw"}}}
-
-(def jay {:fname "jay" :lname "fields" :employer "drw"})
-(def mike {:fname "mike" :lname "jones" :employer "forward"})
-(def john {:fname "john" :lname "dydo" :employer "drw"})
-
-(clojure.set/project [jay mike john] [:fname :lname])
-#{{:lname "fields", :fname "jay"}
-{:lname "dydo", :fname "john"}
-{:lname "jones", :fname "mike"}}
-
-(clojure.set/rename [jay mike john] {:fname :first-name :lname :last-name})
-#{{:last-name "jones", :first-name "mike", :employer "forward"}
-{:last-name "dydo", :first-name "john", :employer "drw"}
-{:last-name "fields", :first-name "jay", :employer "drw"}}
-```
-
-* Table of Contents
-
-<table>
+<table style="border-spacing: 7px; border-collapse: separate;">
 <tr>
   <td>
 
 ```clojure
 'a ⇔ (quote a)
 [syntax quote] `a ⇔ (quote user/a)
+
 ;; Examples
 (read-string "`{:a 100}")
+; => {:a 100}
 `[:a ~(+ 1 1) ~'c d ~`e]
-; [:a 2 c user/d user/e]
+; => [:a 2 c user/d user/e]
 ```
   </td>
   <td>
-<blockquote><p>« There is no syntax quote »</p></blockquote>
-"It's just code once its been read by the Clojure reader" @nandanbagchee
-Syntax quoting apporte gensym optionnel (si # à
-la fin du nom. Utile pour les macros qui créent
-des var. locales comme let ou loop) + namespace
-qualification des symbol selon l'environnement
-en cours. produces code to reproduce the form.
-On peut unquoter dans un sntax-quoted form
-avec le tilde.
+`Syntax quoting` brings optional `gensym` (if `#` at the end of var name.
+ Useful for macros that create local vars, eg in `let` or `loop`) + namespace
+ qualification of symbols. Produces code to reproduce the form.
+ One can unquote inside a syntax-quoted form with the tilde `~`.
   </td>
 </tr>
 
@@ -70,8 +42,8 @@ and arg (.method arg)
 ```
   </td>
   <td>
-return nil if arg is nil, otherwise execute `method` on arg.
-Thus avoids nil check.
+Returns `nil` if arg is `nil`, otherwise execute `method` on arg.
+ Thus avoids `nil` checks.
   </td>
 </tr>
 
@@ -81,6 +53,7 @@ Thus avoids nil check.
 ```clojure
 apply f x1 ... xn c
 → (f x1 x2 ... c1 c2 ... cn)
+
 ;; Examples
 (apply + 5 6 '()) ; 11
 (apply max [1 2 3]) ; 3
@@ -91,8 +64,9 @@ apply f x1 ... xn c
 ```
   </td>
   <td>
-Evaluates ƒ (must not be a macro) on xn arguments prepended to the collection.
-Has similarities with `unquote splicing` ~@
+Evaluates ƒ (must not be a macro) on \\( x_n \\) arguments prepended
+ to the collection.
+ Has similarities with `unquote splicing` `~@`.
   </td>
 </tr>
 
@@ -102,6 +76,7 @@ Has similarities with `unquote splicing` ~@
 ```clojure
 assoc map k 1 v1 ... k n v n
 assoc vec idx1 v1 ... idxn vn
+
 ;; Examples
 (assoc [1 2 4] 3 10 0 12)
 ; [12 2 4 10]
@@ -111,10 +86,10 @@ assoc vec idx1 v1 ... idxn vn
 ```
   </td>
   <td>
-<ul><li>applied on a map, returns a map of the same type (hashed/sorted)
-containing (or substituting) k/v of map and (by) those specified.</li>
-<li>applied on a vector, replace the element at specified index or add it at
-the last position.</li></ul>
+<ul><li>applied on a `map`, returns a `map` of the same type (hashed/sorted)
+ containing (or substituting) k/v of `map` and (by) those specified.</li>
+<li>applied on a `vector`, replace the element at specified index or add it at
+ the last position.</li></ul>
   </td>
 </tr>
 
@@ -124,6 +99,7 @@ the last position.</li></ul>
 ```clojure
 assoc-in map [k1 ... kn] v
 assoc-in vec [k1 ... kn] v
+
 ;; Examples
 (assoc-in [{:k1 "v1"} {:k2 "v2"}]
           [1 :k2] "nv2")
@@ -133,8 +109,9 @@ assoc-in vec [k1 ... kn] v
 ```
   </td>
   <td>
-returns the same type of associative structure, with v the value of nested key
-reached by k1 .. kn. If any kx level does not exist, hash-maps are created.
+Returns the same type of associative structure, with v the value of nested key
+ reached by \\( k1 .. kn \\). If any \\( k_x \\) level does not exist,
+ hash-maps are created.
   </td>
 </tr>
 
@@ -143,13 +120,14 @@ reached by k1 .. kn. If any kx level does not exist, hash-maps are created.
 
 ```clojure
 bean java-object
+
 ;; Examples
 (bean java.awt.Color/RED)
 ; {:red 255:transparency : 1 ...}
 ```
   </td>
   <td>
-returns a map with all getters of the java object.
+Returns a `map` with all getters of the java object.
   </td>
 </tr>
 
@@ -166,8 +144,8 @@ comp f1 f2 ... fn
 ```
   </td>
   <td>
-returns a function with undefined arity, applying fx (from right to left)
-on arguments.
+Returns a function with undefined arity, applying \\( f_x \\)
+ (from right to left) on arguments.
   </td>
 </tr>
 
@@ -184,7 +162,8 @@ concat x1 ... xn
 ```
   </td>
   <td>
-returns a sequence including all xk elements. Does not flatten nested colls.
+Returns a sequence including all \\( x_k \\) elements.
+ Does not flatten nested colls.
   </td>
 </tr>
 
@@ -211,12 +190,13 @@ conj
 
 ```clojure
 constantly x
+
 ;; Examples
 (constantly x) 1 2 3 → x
 ```
   </td>
   <td>
-returns a function with undefined arity, that always results in x.
+Returns a function with undefined arity, that always results in x.
   </td>
 </tr>
 
@@ -232,13 +212,13 @@ contains? coll k
 (contains? [1 2 3 4] 0) ; true
 (contains? '(1 2 3 4) 2)
 ; IllegalArgumentException
-
 ```
   </td>
   <td>
-returns true if the key k is present in the indexed collection (map and set),
-o if the index exists in a vector. Do not use with lists.
-Prefer `some` to query for a value.
+Returns true if the **key** k is present in the **indexed** collection
+ (`map` and `set`), or if the index exists in a `vector`.
+ Do not use with `list`.
+ Prefer `some` to query for a value.
   </td>
 </tr>
 
@@ -253,11 +233,10 @@ defrecord
 (def f (Foo. 1 2 3)) ; #'user/f
 (:b f) ; 2
 (class f) ; user.Foo p
-
 ```
   </td>
   <td>
-optionally with implementation of protocols.
+Optionally with implementation of protocols.
   </td>
 </tr>
 
@@ -271,13 +250,12 @@ dissoc map k1 ... kn
 (dissoc {:fname "John" :lname "Doe"}
         :lname)
 ; {:fname "John"}
-
 ```
   </td>
   <td>
-opposite of assoc. Returns an associative structure
-of the same type than `map` but without the nested key
-reached by k1 .. kn.
+Opposite of `assoc`. Returns an associative structure
+ of the same type than `map` but without the nested key reached
+ by \\( k\_1 \cdots k\_n \\)
   </td>
 </tr>
 
@@ -286,16 +264,13 @@ reached by k1 .. kn.
 
 ```clojure
 doseq dorun doall
-
-;; Examples
-
 ```
   </td>
   <td>
 Force evaluation of lazy seqs (side effects).
-unlike for, doseq never returns a value but nil.
-doall retains the head and returns it.
-dorun does not retain the head and returns nil.
+ unlike `for`, `doseq` never returns a value but `nil`.
+ `doall `retains the head and returns it.
+ `dorun` does not retain the head and returns `nil`.
   </td>
 </tr>
 
@@ -307,11 +282,10 @@ dotimes bindings & body
 
 ;; Examples
 (dotimes [n 5] (println "n is" n))
-
 ```
   </td>
   <td>
-runs body n times, from 0 to n-1
+Runs body \\( n \\) times, from \\( 0 \text{ to } n-1 \\).
   </td>
 </tr>
 
@@ -325,12 +299,11 @@ find vec idx
 ;; Examples
 (find {:b 2 :a 1 :c 3} :a) ; [:a 1]
 (find [:a :b :c :d] 2) ; [2 :c]
-
 ```
   </td>
   <td>
-* if map, returns the map entry for key k or nil if not found.
-* if vector, returns entry for index idx or nil if not found.
+* if `map`, returns the map entry for key \\( k \\) or `nil` if not found.
+* if `vector`, returns entry for index \\( idx \\) or `nil` if not found.
   </td>
 </tr>
 
@@ -343,11 +316,10 @@ flatten
 ;; Examples
 (flatten [1 [2 3 [4 5] 6]])
 ; (1 2 3 4 5 6)
-
 ```
   </td>
   <td>
-flattens the nested sequences
+Flattens the nested sequences.
   </td>
 </tr>
 
@@ -356,15 +328,12 @@ flattens the nested sequences
 
 ```clojure
 fnil f x1 ... xn
-
-;; Examples
-
 ```
   </td>
   <td>
-returns a function that calls ƒ with xk
-as an argument if the original argument is nil.
-The arity of ƒ must be ≥ n.
+Returns a function that calls ƒ with \\( x_k \\)
+ as an argument if the original argument is `nil`.
+ The arity of ƒ must be \\( \geq n \\).
   </td>
 </tr>
 
@@ -379,15 +348,12 @@ y valy
 :while test
 :when test]
 body
-
-;; Examples
-
 ```
   </td>
   <td>
 « List comprehension ».
-Returns a sequence containing the results of the execution of body.
-Not intended for side effects.
+ Returns a sequence containing the results of the execution of body.
+ Not intended for side effects.
   </td>
 </tr>
 
@@ -400,12 +366,11 @@ frequencies coll
 ;; Examples
 (frequencies ['a 'b 'a 'a])
 ; {a 3, b 1}
-
 ```
   </td>
   <td>
-returns with a map that indicates, for each separate element of `col`
-the frequency at with which it appears.
+Returns with a `map` that indicates, for each separate element of `col`,
+ the frequency at with which it appears.
   </td>
 </tr>
 
@@ -424,12 +389,11 @@ group-by f coll
 
 (group-by #(< % 10) [1 2 20 21])
 ; {true [1 2] false [20 21]}
-
 ```
   </td>
   <td>
-returns a map of `col` elements, sorted by the return value of f applied
-to them.
+Returns a `map` of `col` elements, sorted by the return value of ƒ applied.
+ to them.
   </td>
 </tr>
 
@@ -442,15 +406,11 @@ interleave c1 ... cn
 ;; Examples
 (interleave [:a :b] (iterate inc 1))
 ; (:a 1 :b 2)
-
 ```
   </td>
   <td>
-retourne une séquence contenant le premier
-élément de chaque c x, puis le second, ...
-
-returns a sequence containing the first element of each cx, then the second,
-
+Returns a sequence containing the first element of each \\( c_x \\),
+ then the second, ...
   </td>
 </tr>
 
@@ -459,14 +419,11 @@ returns a sequence containing the first element of each cx, then the second,
 
 ```clojure
 interpose sep coll
-
-;; Examples
-
 ```
   </td>
   <td>
-returns a sequence of elements of the collection separated by the
-`sep` separator.
+Returns a sequence of elements of the collection separated by the
+ `sep` separator.
   </td>
 </tr>
 
@@ -487,12 +444,11 @@ into to from
 ; (:c :b :a 1 2 3)
 (into [1 2 3] [:a :b :c])
 ; [1 2 3 :a :b :c]
-
 ```
   </td>
   <td>
-returns a collection of the same type than `to`, appending all elements of
-collection `from`.
+Returns a collection of the same type than `to`, appending all elements of
+ collection `from`.
   </td>
 </tr>
 
@@ -506,7 +462,6 @@ iterate f x
 ;; Examples
 (iterate #(∗ 2) 2)
 ; (2 4 8 16 ...)
-
 ```
   </td>
   <td>
@@ -526,12 +481,11 @@ juxt f 1 f2 ...
 (map (juxt second count)
      ['(2 3) '(5 6 9)])
 ; ([3 2] [6 3])
-
 ```
   </td>
   <td>
-returns a function that returns a vector whose elements are the application
-of ƒ on the argument.
+Returns a function that returns a `vector` whose elements are the application
+ of ƒ on the argument.
   </td>
 </tr>
 
@@ -543,21 +497,17 @@ keep f coll
 keep-indexed f coll
 
 ;; Examples
-(keep #(if (odd? %) %) (range 10))
+(keep #(when (odd? %) %) (range 10))
 ; (1 3 5 7 9)
-(map #(if (odd? %) %) (range 10))
+(map #(when (odd? %) %) (range 10))
 ; (nil 1 nil 3 nil 5 nil 7 nil 9)
-
 ```
   </td>
   <td>
-retourne une seq de tous les résultats non nil de
-l'application de f sur chaque élement de col. Les
-résultats false sont inclus.
-returns a sequence *****************
-ƒ must be a pure function.
-keep-indexed utilise une fonction de type fn
-[idx v]
+Returns a sequence made of non `nil` results of the application of ƒ
+ on every `coll` elements. `false` results are included.
+ ƒ must be a pure function.
+`keep-indexed` uses a function like `fn [idx v]`.
 
   </td>
 </tr>
@@ -572,15 +522,12 @@ list x1 ... xn
 '(a 2 3) ; (a 2 3)
 (list a 2 3)
 ; Exception cannot resolve a
-
 ```
   </td>
   <td>
-retourne une liste contenant tous les
-arguments x (évt. nil). Contrairement à la
-notation literal list '(...), les éléments sont
-évalués avant insertion.
-
+Returns a `list` containing all \\( x_n \\) args, possibly `nil`.
+ Unlike literal notation list `'(...)`,
+ the elements are evaluated before insertion.
   </td>
 </tr>
 
@@ -602,14 +549,11 @@ list* x1 ... xn ()
 ; (1 2 [3 4])
 (list* nil [1 2]) ; (nil 1 2)
 (list* 1 nil) ; (1)
-
 ```
   </td>
   <td>
-retourne une liste contenant tous les
-arguments x (évt. nil) ainsi que les éléments de
-la séquence s (si non vide et non nulle).
-
+Returns a `list` containing all \\( x_n \\) args, possibly `nil`, as well as
+ all elements of sequence s (if not empty and not `nil`).
   </td>
 </tr>
 
@@ -623,7 +567,7 @@ la séquence s (si non vide et non nulle).
 
 [p]map f c ; ((f c1) (f c2) ...)
 
-[p] :m means parallel
+[p] : means parallel
 
 mapv f c1 c2 ...
 → [(f c1 1 c21 ...)
@@ -634,21 +578,16 @@ mapv f c1 c2 ...
 map #(+ %%2%3) '(1 2 3)
     '(4 5 6 7 8) '(9 10 11)
 ; (14 17 20)
-
 ```
   </td>
   <td>
-→ seq contenant résultats d'application de ƒ
-aux premiers éléments de chaque collection,
-puis 2nd, ...
-ƒ doit avoir autant d'arguments qu'il y a de c x. Si
-une collection a trop d'éléments ils seront
-ignorés.
-Avec une seule collection, applique la fonction
-sur tous ses éléments.
-mapv : la même chose mais retourne un vecteur
-(donc non lazy)
-
+Returns a sequence containing results of the application of ƒ
+ on each first elements of every collections \\( c_n \\)
+ then on each second elements, ...
+ ƒ should have as many args as the number of collections.
+ If a collection has too many arguments they will be ignored.
+ With a single collection, `map` applies the function on every elements.
+ `mapv `: same thing but returns a `vector` and is not lazy.
   </td>
 </tr>
 
@@ -667,30 +606,24 @@ mapcat f c1 ... cn
 ; (:a 1 :b 2 :c 3)
 (mapcat (fn [x] (repeat x x)) [12 3])
 ; (1 2 2 3 3 3)
-
 ```
   </td>
   <td>
-Équivalent à (apply concat (map f c1 ... cn))
-applique concat sur le résultat de l'application
-de map sur ƒ et les collections.
-
+Equivalent to `(apply concat (map f c1 ... cn))`.
+ Applies `concat` on the result of the application of `map`
+ on ƒ and collections.
   </td>
 </tr>
 
 <tr>
   <td>
+
 ```clojure
 memoize f
-
-;; Examples
-
 ```
   </td>
   <td>
-retourne une version avec cache de ƒ, qui doit
-être pure.
-
+Returns a cached version of ƒ. ƒ must be pure.
   </td>
 </tr>
 
@@ -702,14 +635,10 @@ retourne une version avec cache de ƒ, qui doit
 
 ;; Examples
 (def ^{:doc "a var"} x 10)
-
 ```
   </td>
   <td>
-docstring alternative.
-En règle générale les métadonnées n'affectent
-pas l'égalité.
-
+Alternate docstring. Metadata does not affect equality.
   </td>
 </tr>
 
@@ -718,15 +647,10 @@ pas l'égalité.
 
 ```clojure
 or supplied-val default-val
-
-;; Examples
-
 ```
   </td>
   <td>
-retourne supplied-val si non nulle, default-val
-sinon.
-
+Returns `supplied-val` if not `nil`, otherwise `default-val`.
   </td>
 </tr>
 
@@ -738,13 +662,10 @@ partial f x1 ... xn
 
 ;; Examples
 #(+ 1 %) ⇔ (partial + 1)
-
 ```
   </td>
   <td>
-retourne une fonction qui prend n arguments
-de moins que ce que requiert ƒ.
-
+Returns a function that takes \\( n \\) less args that what ƒ requires.
   </td>
 </tr>
 
@@ -762,17 +683,16 @@ partition n step pad coll
 ; ((1 2) (2 3) (3 0))
 (partition 2 1 [1 2 3])
 ; ((1 2) (2 3))
-
 ```
   </td>
   <td>
-retourne une lazy seq de listes de n éléments
-chacune. Si la dernière liste à moins de n
-éléments elle n'est pas ajoutée. le 'step', qui vaut
-n par défaut est le décalage pour la création de
-chaque liste. 'pad' est une liste qui vise à
-compléter la dernière si < n éléments.
-
+Returns a lazy sequence containing lists of \\( n \\) elements each.
+ If the final `list` has less than \\( n \\) elements, it is not added,
+ except with `partition-all` (see below).
+ The 'step', which is \\( n \\) by default, is the offset
+ for the creation of each list.
+ 'Pad' is a list designed to complement the latest
+ if less than \\( n \\) elements.
   </td>
 </tr>
 
@@ -785,14 +705,11 @@ partition-all n coll
 ;; Examples
 (partition-all 2 [1 2 3])
 ; ((1 2) (3))
-
 ```
   </td>
   <td>
-comme partition, mais construit également la
-dernière liste même s'il y a moins de 'n'
-éléments.
-
+Similar to `partition`, but also builds the last `list` even if there
+ are less than \\( n \\) elements.
   </td>
 </tr>
 
@@ -808,13 +725,10 @@ partition-by f coll
 (partition-by (partial < 10)
               [1 2 11 1])
 ; ((1 2) (11) (1))
-
 ```
   </td>
   <td>
-comme partition, mais coupe la liste à chaque
-fois que ƒ change de valeur
-
+Similar to `partition`, but cut the list each times ƒ change its value.
   </td>
 </tr>
 
@@ -830,17 +744,12 @@ reduce f '(c1) → c1
 reduce f val c
 → (f (f (f val c1) c2) c3) ...
 reduce f val '() → val
-
-;; Examples
-
 ```
 
   </td>
   <td>
-Sauf lorsque non utilisée ou indiqué, ƒ doit
-proposer une arité avec 2 arguments.
-Retourne l'accumulateur.
-
+ƒ should have a 2 args arity, except when not used or indicated.
+ Returns the accumulator.
   </td>
 </tr>
 
@@ -849,15 +758,10 @@ Retourne l'accumulateur.
 
 ```clojure
 reductions
-
-;; Examples
-
 ```
   </td>
   <td>
-renvoie une séquence des étapes intermédiaires
-de reduce.
-
+Returns a sequence of intermediate steps of `reduce`.
   </td>
 </tr>
 
@@ -867,16 +771,11 @@ de reduce.
 ```clojure
 repeatedly f → '(f f f ...)
 repeatedly n f → '(f f f ... n)
-
-;; Examples
-
 ```
   </td>
   <td>
-ƒ est sans arguments, évt. impure.
-Séquence infinie (ou de taille n) d'appels
-successifs à f.
-
+ƒ should have no args, possibly impure.
+ Returns an infinite sequence (or size n) of successive calls to ƒ.
   </td>
 </tr>
 
@@ -886,15 +785,11 @@ successifs à f.
 ```clojure
 repeat x → '(x x x ...)
 repeat n x → '(x x x ...n)
-
-;; Examples
-
 ```
   </td>
   <td>
-Séquence infinie (ou de taille n) de x. Si c'est
-une fonction, 1 seul appel est effectué.
-
+Returns an infinite sequence (or size n) of value x.
+ If x is a function, only one call is made.
   </td>
 </tr>
 
@@ -911,14 +806,11 @@ sequencecoll
 ; ()
 (sequence [1 2]) ou (seq [1 2])
 ; (1 2)
-
 ```
   </td>
   <td>
-retourne une séquence à partir de la collection
-col. pour une collection nil ou vide, seq et
-sequence se comportent différemment.
-
+Returns a sequence from the collection `coll`.
+ For an `nil` or empty collection, `seq` and `sequence` behave differently.
   </td>
 </tr>
 
@@ -940,12 +832,10 @@ sort-by keyfn comp coll
          ["the" "quick"
           "brown" "fox"])
 ; ("the" "fox" "quick" "brown")
-
 ```
   </td>
   <td>
-retourne une seq triée.
-
+Returns a sorted sequence.
   </td>
 </tr>
 
@@ -958,12 +848,10 @@ split-at n coll
 ;; Examples
 (split-at 2 [:a :b :c :d :e])
 ; [(:a :b) (:c :d :e)]
-
 ```
   </td>
   <td>
-retourne un vecteur de [(take n coll) (drop n coll)]
-
+Returns a vector of `[(take n coll) (drop n coll)]`.
   </td>
 </tr>
 
@@ -976,13 +864,10 @@ split-with pred coll
 ;; Examples
 (split-with (partial >= 3)
 ; [1 2 3 4 5]) [(1 2 3) (4 5)]
-
 ```
   </td>
   <td>
-retourne un vecteur de [(take-while pred coll)
-(drop-while pred coll)]
-
+Returns a vector of `[(take-while pred coll) (drop-while pred coll)]`.
   </td>
 </tr>
 
@@ -995,12 +880,10 @@ take-nth n c
 ;; Examples
 (take-nth 3 '(2 5 9 6 8 9 10 11))
 ; (2 6 10)
-
 ```
   </td>
   <td>
-prend le premier et tous les nièmes éléments de c.
-
+Takes the first and every nth elements of `c`.
   </td>
 </tr>
 
@@ -1009,15 +892,10 @@ prend le premier et tous les nièmes éléments de c.
 
 ```clojure
 take-while pred coll
-
-;; Examples
-
 ```
   </td>
   <td>
-retourne les éléments de coll tant que pred est
-vrai
-
+Returns elements of `coll` as long as predicate `pred` is true.
   </td>
 </tr>
 
@@ -1026,16 +904,11 @@ vrai
 
 ```clojure
 tranpoline f & args
-
-;; Examples
-
 ```
   </td>
   <td>
-pour la récursion mutuelle sans comsommation
-de la stack. Effectue le ping pong tant que ce
-qui est retourné est une fonction.
-
+Used for mutual recursion without consumming the stack.
+ Performs the ping pong as long as what is returned is a function.
   </td>
 </tr>
 
@@ -1051,17 +924,13 @@ update-in map [k1 .. kn] f & args
 (update-in jdoe [:address :zip] inc)
 ; {:name "John Doe"
 ;  :address {:zip 42}}
-
 ```
   </td>
   <td>
-retourne une structure associative identique à
-map mais avec la valeur de la nested clef
-atteinte par k1 .. k n mise à jour par ƒ et ses
-arguments optionnels.
-Si un niveau kx n'existe pas, des hash-maps
-seront créées.
-
+Returns an associative structure identical to
+ `map` but with the value of the nested key reached by \\( k\_1 \cdots k\_n \\)
+  updated by ƒ (and its optional arguments).
+  If the \\( k_x \\) level does not exist, hash-maps will be created.
   </td>
 </tr>
 
@@ -1071,15 +940,10 @@ seront créées.
 ```clojure
 vec c → [c1 c2 ...]
 vec nil → []
-
-;; Examples
-
 ```
   </td>
   <td>
-retourne un vecteur contenant les éléments de
-c.
-
+Returns a `vector` containing the elements of c.
   </td>
 </tr>
 
@@ -1089,15 +953,10 @@ c.
 ```clojure
 vector x1 x2 ... → [x1 x2 ...]
 vector nil → [nil]
-
-;; Examples
-
 ```
   </td>
   <td>
-retourne un vecteur contenant tous les
-arguments x.
-
+Returns a vector containing all arguments \\( x_\n \\).
   </td>
 </tr>
 
@@ -1111,15 +970,11 @@ vector-of t & x1 ... xn
 ;; Examples
 (conj (vector-of :int 4) 1 2 3)
 ; [4 1 2 3]
-
 ```
   </td>
   <td>
-retourne un vecteur de type primitif (:int
-:long :float :double :byte :short :char ou
-:boolean) contenant les arguments optionnels
-x.
-
+Returns a `vector` of primitive types (:int :long :float :double :byte
+ :short :char or :boolean) containing all optional \\( x_\n \\) arguments.
   </td>
 </tr>
 
@@ -1130,15 +985,10 @@ x.
 zipmap keys vals → (k1 v1 ... kn vn)
 zipmap [k1 k2] [v1] → (k1 v1)
 zipmap [k] [v1 v2] → (k1 v1)
-
-;; Examples
-
 ```
   </td>
   <td>
-retourne une map avec les clefs associées aux
-valeurs.
-
+return a `map` with the keys associated with values.
   </td>
 </tr>
 
@@ -1152,9 +1002,6 @@ valeurs.
 ;=> (:a)
 (keep (comp #{:a} first) [[:a] [:b]])
 ;=> (:a)
-
-;; Examples
-
 ```
   </td>
   <td>
@@ -1164,20 +1011,37 @@ keep = map + filter
 
 </table>
 
-**Predicates**
+Inspect a `map` :
 
 ```clojure
-(every? odd? [1 3 5]) ; true
-(not-any? zero? [1 2 3]) ; true
-(not-every? even? [2 3 4]) ; true
-(some nil? [1 nil 2]) ; true
+(require 'clojure.inspector)
+(clojure.inspector/inspect-tree map)
 ```
 
-| a | b  | sequential? | associative? | sorted? | counted? | reversible? | coll? | seq? | vector? | list? | map? | set? |
-|:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| list | '() | ✔ | | | ✔ | ✔ | ✔ | | | ✔ | | |
-| vector | [] | ✔ | ✔ | | ✔ | ✔ | ✔ | | ✔ | | | |
-| map | {} | | ✔ | sorted-map | ✔ | | ✔ | | | | ✔ | |
-| seq | | ✔ | | | | | | ✔ | | | | |
-| struct, record | | | ✔ | | ✔ | | ✔ | | | | ✔ | |
-| set | #{} | | | sorted-map | ✔ | | ✔ | | | | | ✔ |
+And finally, some other useful functions, from the excellent [Jay Fields's blog][1].
+
+[1]: http://blog.jayfields.com/2012/09/replacing-common-code-with-clojureset.html|target=_blank
+
+```clojure
+(def jay {:fname "jay" :lname "fields" :employer "drw"})
+(def mike {:fname "mike" :lname "jones" :employer "forward"})
+(def john {:fname "john" :lname "dydo" :employer "drw"})
+
+; returns a map whose keys are every employers and values are people defined above
+(clojure.set/index [jay mike john] [:employer])
+; => {{:employer "drw"} #{{:employer "drw" :fname "jay" :lname "fields"}
+;                         {:employer "drw" :fname "john" :lname "dydo"}}
+; {:employer "forward"} #{{:employer "forward" :fname "mike" :lname "jones"}}}
+
+; projection
+(clojure.set/project [jay mike john] [:fname :lname])
+; => #{{:lname "fields", :fname "jay"}
+;      {:lname "dydo", :fname "john"}
+;      {:lname "jones", :fname "mike"}}
+
+; key rename
+(clojure.set/rename [jay mike john] {:fname :first-name :lname :last-name})
+; => #{{:last-name "jones", :first-name "mike", :employer "forward"}
+;      {:last-name "dydo", :first-name "john", :employer "drw"}
+;      {:last-name "fields", :first-name "jay", :employer "drw"}}
+```

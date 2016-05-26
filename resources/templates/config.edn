@@ -4,7 +4,7 @@
 {:site-title         "Wiaa"
  :author             "Olivier Barbeau"
  :description        "Blog about Clojure and various thoughts."
- :site-url           "http://blogawesome.com/"
+ :site-url           "https://obarbeau.github.io/"
  :post-root          "posts"
  :page-root          "pages"
  :post-root-uri      "posts-output"
