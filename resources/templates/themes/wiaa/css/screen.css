@@ -104,6 +104,7 @@ blockquote .small, blockquote footer, blockquote small {
 .post-excerpt {
   margin-bottom: 20px;
   font-style: italic;
+  font-family: 'Averia Libre', 'Linux Libertine', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .post-header {

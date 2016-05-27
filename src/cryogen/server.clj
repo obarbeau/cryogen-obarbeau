@@ -31,8 +31,7 @@
                                 "prev/next post/page if it exists")})
           (fn
             [pages]
-            (map (fn [; oba [prev target next]
-                      [next target prev]]
+            (map (fn [[next target prev]] ; before [prev target next]
                    (assoc target
                      :prev (if prev (select-keys prev [:title :uri]) nil)
                      :next (if next (select-keys next [:title :uri]) nil)))
