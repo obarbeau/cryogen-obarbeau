@@ -93,6 +93,11 @@ blockquote .small, blockquote footer, blockquote small {
   font-size: 100%;
 }
 
+blockquote {
+  font-size: 16.5px;
+  color: olivedrab;
+}
+
 #post-tags {
   margin-top: 30px;
 }
@@ -105,6 +110,7 @@ blockquote .small, blockquote footer, blockquote small {
   margin-bottom: 20px;
   font-style: italic;
   font-family: 'Averia Libre', 'Linux Libertine', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: olivedrab;
 }
 
 .post-header {
