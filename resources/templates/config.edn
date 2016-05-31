@@ -23,8 +23,8 @@
  :theme              "wiaa"
  :resources          ["img"]
  :keep-files         ["fonts" ".git" "favicon.png" "pubkey.mde@micahelliott.com.gpg.asc" "robots.txt"]
- :disqus?            false
- :disqus-shortname   ""
+ :disqus?            true
+ :disqus-shortname   "wiaa"
  :ignored-files      [#"\.#.*" #".*\.swp$"]
  :posts-per-page     5
  :blocks-per-preview 2
