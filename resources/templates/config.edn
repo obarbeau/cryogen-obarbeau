@@ -1,10 +1,10 @@
 
 ;; cf http://blog.fikesfarm.com/ qui a la navbar fixed
 
-{:site-title         "Wiaa"
+{:site-title         "The world in an atom"
  :author             "Olivier Barbeau"
  :description        "Blog about Clojure and various thoughts."
- :site-url           "https://obarbeau.github.io/"
+ :site-url           "http://world-in-atom.com/"
  :post-root          "posts"
  :page-root          "pages"
  :post-root-uri      "posts"
@@ -22,7 +22,7 @@
  ; la base du thème c'est bootstrap
  :theme              "wiaa"
  :resources          ["img"]
- :keep-files         ["fonts" ".git" "favicon.png" "pubkey.mde@micahelliott.com.gpg.asc" "robots.txt"]
+ :keep-files         ["fonts" ".git" "favicon.png" "robots.txt"]
  :disqus?            false
  :disqus-shortname   ""
  :ignored-files      [#"\.#.*" #".*\.swp$"]
