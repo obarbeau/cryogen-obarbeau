@@ -1,6 +1,3 @@
-
-;; cf http://blog.fikesfarm.com/ qui a la navbar fixed
-
 {:site-title         "The world in an atom"
  :author             "Olivier Barbeau"
  :description        "Blog about Clojure and various thoughts."
@@ -23,8 +20,8 @@
  :theme              "wiaa"
  :resources          ["img"]
  :keep-files         ["fonts" ".git" "favicon.png" "robots.txt"]
- :disqus?            false
- :disqus-shortname   ""
+ :disqus?            true
+ :disqus-shortname   "wiaa"
  :ignored-files      [#"\.#.*" #".*\.swp$"]
  :posts-per-page     5
  :blocks-per-preview 2
