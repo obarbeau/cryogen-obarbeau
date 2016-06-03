@@ -19,7 +19,7 @@
  ; la base du thème c'est bootstrap
  :theme              "wiaa"
  :resources          ["img"]
- :keep-files         ["fonts" ".git" "favicon.png" "robots.txt"]
+ :keep-files         ["fonts" ".git" "favicon.png" "robots.txt" "CNAME"]
  :disqus?            true
  :disqus-shortname   "wiaa"
  :ignored-files      [#"\.#.*" #".*\.swp$"]
