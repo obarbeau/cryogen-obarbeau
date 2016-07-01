@@ -121,6 +121,15 @@ blockquote {
   font-size: 32px;
 }
 
+/* do not display level 2 titles in home page */
+#post>h2 {
+  display: none;
+}
+
+#post>div>h2 {
+  font-size: 28px;
+}
+
 #post-meta {
   font-size: 14px;
   color: rgba(0, 0, 0, 0.4)
@@ -157,6 +166,10 @@ a code:after {
   vertical-align: middle;
   margin-right: -16px;
   /*color: #428bca;*/
+}
+
+code {
+  font-size: 80%;
 }
 
 pre, code, .hljs {
