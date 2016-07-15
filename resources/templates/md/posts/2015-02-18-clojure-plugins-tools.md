@@ -319,4 +319,15 @@ chmod a+x boot
 mv boot ~/bin/boot
 ```
 
+Better:
+
+```bash
+# install launch4j
+# on the same partition than m2 repo, otherwise "Invalid cross-device link"
+git clone https://github.com/boot-clj/boot-bin.git
+# must use jdk7
+cd boot-bin && ./build.sh
+# copy build/boot to /usr/local/bin
+```
+
 Immutable File System -> boot task -> boot task2 -> ...
