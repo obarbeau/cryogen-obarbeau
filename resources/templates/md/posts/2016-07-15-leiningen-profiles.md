@@ -10,12 +10,13 @@ and those I use with lein tasks, more notably `lein repl`."
 
 What do you do in Paris in July?
 
-Sip a beer with a friend at the terrace of a café,
+Sip a beer with my friend Wilfried at the terrace of a café,
 looking the rain falling, and waiting for the summer really begins.
 
 Serious and less serious subjects follow each other...
 
-There also arises the question of a good development environment for Clojure.
+There also arises the question of a good development environment for Clojure,
+as a continuation of our discussion when we were at [Paris's Clojure meetup][3].
 
 In addition to the excellent pair IntelliJ Idea + Cursive,
 some profiles for Leiningen can greatly enhance the experience of REPL.
@@ -28,9 +29,6 @@ It is available [here][1].
 The [sample `project.clj`][2] file of a standard Clojure project
 can also give you tips about options you can configure or add
 in your own profiles.
-
-[1]: https://github.com/technomancy/leiningen/blob/master/doc/PROFILES.md|target=_blank
-[2]: https://github.com/technomancy/leiningen/blob/master/sample.project.clj|target=_blank
 
 ## Overview
 
@@ -128,11 +126,11 @@ that is shared amongst all clojure projects.
   ; except if we 'deprotect' them like show: 
   :clean-targets ^{:protect false} [:target-path]
 
-  ; it is possible to configure any options for a tool in this profile without
-  ; importing the corresponding plugin, which will be done only
+  ; it is possible to configure any options for a tool in this profile
+  ; without importing the corresponding plugin, which will be done only
   ; in projects that use it (in `project.clj`).
-  ; for example, codox is a documentation tool, we set its overall options here
-  ; but don't import the plugin.
+  ; for example, codox is a documentation tool, we set its overall options
+  ; here but don't import the plugin.
   :codox {:defaults {:doc/format :markdown}
           :writer codox.writer.html/write-docs
           ; source links
@@ -165,7 +163,8 @@ that is shared amongst all clojure projects.
              "-XX:+UseFastAccessorMethods" "-server"
              "-Duser.timezone=Europe/Paris"]
 
-  ; in this `user` profile, use plugins with the less dependencies as possible
+  ; in this `user` profile, use plugins with the less dependencies
+  ; as possible
   :plugins [; executing Clojure scripts (in two words)
             [lein-exec                        "0.3.6"]
             ; Add leiningen dependencies quickly
@@ -225,7 +224,8 @@ with the following content:
                ; the following functions, from various specified namespaces.
                ; These functions will be callable with the '>' prefix.
                ; eg. (>doc f) will be translated to (clojure.repl/doc f)
-               ; (>sh "ls") will be translated to (clojure.java.shell/sh "ls")
+               ; (>sh "ls") will be translated to
+               ;   (clojure.java.shell/sh "ls")
                (inject/in
                 clojure.core >
                 [aprint.core aprint]
@@ -296,3 +296,7 @@ sublime-text /tmp/bikeshed.txt /tmp/kibit.md /tmp/eastwood.txt /tmp/hunter.txt
 ```
 
 Your productivity is now multiplied by 3.14
+
+[1]: https://github.com/technomancy/leiningen/blob/master/doc/PROFILES.md|target=_blank
+[2]: https://github.com/technomancy/leiningen/blob/master/sample.project.clj|target=_blank
+[3]: http://clojure.paris/|target=_blank
