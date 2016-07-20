@@ -133,6 +133,10 @@ blockquote {
   font-size: 28px;
 }
 
+#post>div>h3 {
+  font-size: 20px;
+}
+
 #post-meta {
   font-size: 14px;
   color: rgba(0, 0, 0, 0.4)
