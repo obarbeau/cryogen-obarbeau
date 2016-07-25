@@ -1,6 +1,7 @@
 {:title "Clojure - Plugins & tools"
 :layout :post
 :excerpt "Plugins and tools for Clojure development and leiningen environment"
+:tags  ["clojure" "clojureScript" "plugins" "lein" "leiningen"]
 :toc true}
 
 This is my modest contribution to the [plugins universe][1]

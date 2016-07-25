@@ -178,7 +178,7 @@ that is shared amongst all clojure projects.
   :pom-location "target/"
 
   ; a colored prompt
-  :repl-options {:prompt (fn [ns] (str "[35m[[34m" ns "[35m][33m λ:[m "))}}
+  :repl-options {:prompt (fn [ns] (str "[35m[[34m" ns "[35m][33m λ:[m "))}}
 ```
 
 Remember the `dev` profile should not be defined in the `profiles.clj` file,
