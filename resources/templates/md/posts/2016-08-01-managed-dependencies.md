@@ -8,6 +8,9 @@
 
 ## Context
 
+Plutôt que test scope avec lein,
+utiliser les profiles (dev en l'occurrence) ?
+
 
 Attention avec cette fonctionnalité, toutes les 
 màj de librairies sont upgradées d'un coup lorsqu'on
