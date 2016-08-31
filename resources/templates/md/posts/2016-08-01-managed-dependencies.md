@@ -8,6 +8,10 @@
 
 ## Context
 
+CANCELLED parce que repl-tasks not used anymore
+
+https://github.com/technomancy/leiningen/blob/stable/doc/MANAGED_DEPS.md
+
 Plutôt que test scope avec lein,
 utiliser les profiles (dev en l'occurrence) ?
 
