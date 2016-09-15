@@ -29,10 +29,12 @@ sudo systemctl start docker.service
 docker run -p 3000:3000 onyx/onyx-dashboard:latest "<IP-host-vue-par-docker0>:2188"
 
 # 2) from sources
+to.clj.tools; cd onyx-dashboard
 # build onyx dashboard
 # virer les trucs qui coincent dans project.clj :clean-targets
 lein uberjar
-java -server -jar target/onyx-dashboard.jar "127.0.0.1:2188"
+# java -server -jar target/onyx-dashboard.jar "127.0.0.1:2188"
+java -server -jar /opt/jad/onyx-dashboard.jar "127.0.0.1:2188"
 ```
 
 ```clojure
