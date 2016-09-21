@@ -194,6 +194,7 @@ not very convenient for collections.
 * `marick/lein-midje`
 
 Runs both Midje and clojure.test tests.
+Remark: `midje-auto` do not autoreload `cljc` files.
 
 * `lein-ns-dep-graph`
 
