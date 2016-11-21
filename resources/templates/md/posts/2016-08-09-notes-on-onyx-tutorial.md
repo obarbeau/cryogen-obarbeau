@@ -33,8 +33,7 @@ to.clj.tools; cd onyx-dashboard
 # build onyx dashboard
 # virer les trucs qui coincent dans project.clj :clean-targets
 lein uberjar
-# java -server -jar target/onyx-dashboard.jar "127.0.0.1:2188"
-java -server -jar /opt/jad/onyx-dashboard.jar "127.0.0.1:2188"
+oba-start-onyx-dashboard.sh
 ```
 
 ```clojure
