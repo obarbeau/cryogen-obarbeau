@@ -196,10 +196,10 @@ not very convenient for collections.
 Runs both Midje and clojure.test tests.
 Remark: `midje-auto` do not autoreload `cljc` files.
 
-* `lein-ns-dep-graph`
+* `lein-ns-dep-graph` et `ns-graph`
 
-Shows the namespace dependencies of Clojure project sources as a graph.
-Uses Graphviz.
+Both show the namespace dependencies of Clojure project sources as a graph.
+They use Graphviz.
 
 * `lein-pdo`
 
