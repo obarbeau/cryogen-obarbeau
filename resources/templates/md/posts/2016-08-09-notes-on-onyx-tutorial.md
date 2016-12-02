@@ -83,7 +83,27 @@ oba-start-onyx-dashboard.sh
 
 Dans le onyx-starter, il y a la version 'not in tests' de la définition et du démarrage du component OnyxEnv...
 
+catalog = {tasks}
+task = either fn or input or output
+(fn param1 .. param_n segment) : params can be either in catalog, before-task-start lifecycle hook, or peer opts.
+workflow = directed processing graph
+flow conditions = from->to with predicate
+segments = elements flowing through tasks
+execution parameters
+lifecycle = fn to be triggered after/before task/batch
 
+job = lifecycle + exec params. + flow conds. + catalog
+
+peer = node = 1 job at a time = 1 machine?
+virtual peer == 1 core of CPU
+
+tips:
+exceptions + post-transform
+exclude keys
+media driver
+kafka pour remplacer core.async
+déploiement sur plusieurs serveurs physiques
+cluster = peers + zookeeper + aeron (with media driver)
 
 
 
