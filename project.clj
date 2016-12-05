@@ -1,4 +1,4 @@
-(defproject cryogen-obarbeau "0.2.0"
+(defproject oba/cryogen-obarbeau "0.2.0"
             :description "Simple static site generator"
             :url "https://github.com/lacarmen/cryogen"
             :license {:name "Eclipse Public License"
