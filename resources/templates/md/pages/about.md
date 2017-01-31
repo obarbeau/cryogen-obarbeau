@@ -1,4 +1,4 @@
-{:title "About"
+{:title "About me"
  :layout :page
  :page-index 0
  :navbar? true}
@@ -19,6 +19,10 @@ with the side effect[^1] of working my written English.
 
 If you want to get in touch with me
 you can [email][1] me or find me on [GitHub][2].
+
+## Disclaimer
+
+This is my personal blog. The views expressed herein are mine alone and not those of my present or past employers.
 
 [^1]: this one is allowed!
 
