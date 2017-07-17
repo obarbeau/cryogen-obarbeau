@@ -53,13 +53,13 @@ The plugin does not manage utf8 correctly, so data can be corrupted,
 for example if you have a special REPL prompt.
 </div>
 
-### Tests & benchmarks
+### Tests and benchmarks
 
 * `criterium`
 
 Benchmarks.
 
-#### 'Static code analyzers' & 'Clojure lint tools'
+#### 'Static code analyzers' and 'Clojure lint tools'
 
 * `jonase/kibit`, `lein-bikeshed`, `jonase/eastwood`
 

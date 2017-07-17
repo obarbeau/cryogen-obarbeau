@@ -13,8 +13,9 @@
  :rss-filters        ["cryogen" "clojure"]
  :recent-posts       3
  :post-date-format   "yyyy-MM-dd"
- :sass-src           nil
+ :sass-src           []
  :sass-dest          nil
+ :sass-path          "sass"
  :theme              "wiaa"
  :resources          ["img" "images"]
  :keep-files         ["fonts" ".git" "favicon.png" "robots.txt" "CNAME"]
@@ -24,4 +25,7 @@
  :posts-per-page     5
  :blocks-per-preview 2
  :previews?          true
- :clean-urls?        true}
+ :clean-urls?        true
+ :hide-future-posts?   true
+ :klipse               {}
+ :debug?               false}
