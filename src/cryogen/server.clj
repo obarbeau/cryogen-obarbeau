@@ -9,6 +9,8 @@
             [cryogen-core.compiler :refer [compile-assets-timed read-config]]
             [cryogen-core.io :refer [path]]))
 
+; based on cryogen-core "0.1.56"
+; rewrite-hrefs will be called by the markdown plugin
 (defn interns []
   (intern 'cryogen-core.markup
           (with-meta 'rewrite-hrefs
@@ -19,7 +21,7 @@
           (fn [blog-prefix text]
             (s/replace (if (s/blank? blog-prefix)
                          text
-                         (s/replace text #"href=.?/|src=.?/"
+                         (s/replace text #"(?!href=.?//)href=.?/|(?!src=.?//)src=.?/"
                                     #(str (subs % 0 (dec (count %)))
                                           blog-prefix "/")))
                        #"\|.*target.*=(.*)'" "' target='$1'")))
@@ -27,14 +29,14 @@
   (intern 'cryogen-core.compiler
           (with-meta 'add-prev-next
                      {:doc (str "Adds a :prev and :next key to the page/post"
-                                " data containing the title and uri of the "
+                                " data containing the metadata of the "
                                 "prev/next post/page if it exists")})
           (fn
             [pages]
             (map (fn [[next target prev]] ; before [prev target next]
                    (assoc target
-                     :prev (if prev (select-keys prev [:title :uri]) nil)
-                     :next (if next (select-keys next [:title :uri]) nil)))
+                     :prev (if prev (dissoc prev :content) nil)
+                     :next (if next (dissoc next :content) nil)))
                  (partition 3 1 (flatten [nil pages nil]))))))
 
 (defn init []

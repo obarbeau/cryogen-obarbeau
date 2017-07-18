@@ -10,7 +10,8 @@
  :author-root-uri    "authors"
  :blog-prefix        ""
  :rss-name           "feed.xml"
- :rss-filters        ["cryogen" "clojure"]
+ ; va générer un fichier clojure.xml contenant les feeds spécifiques clojure
+ :rss-filters        ["clojure"]
  :recent-posts       3
  :post-date-format   "yyyy-MM-dd"
  :sass-src           []
@@ -26,6 +27,6 @@
  :blocks-per-preview 2
  :previews?          true
  :clean-urls?        true
- :hide-future-posts?   true
- :klipse               {}
- :debug?               false}
+ :hide-future-posts? true
+ :klipse             {}
+ :debug?             false}
