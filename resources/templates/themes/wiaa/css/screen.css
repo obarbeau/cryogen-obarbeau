@@ -166,7 +166,7 @@ a code {
 }
 
 a code:after {
-  font-family:'FontAwesome';
+  font-family:'FontAwesome',sans-serif;
   content: "\f14c";
   display: inline-block;
   padding-left: 3px;

@@ -134,13 +134,13 @@ that is shared amongst all clojure projects.
   :codox {:defaults {:doc/format :markdown}
           :writer codox.writer.html/write-docs
           ; source links
-          :src-dir-uri "http://github.com/obarbeau/XXX/blob/master/"
+          :src-dir-uri "https://github.com/obarbeau/XXX/blob/master/"
           :src-linenum-anchor-prefix "L"}
 
   ; `lein release` will work only if deploy repository is named `releases`
   :deploy-repositories
   [["releases"
-    {:url "http://ip:8081/nexus/content/repositories/clj-releases"
+    {:url "https://ip:8081/nexus/content/repositories/clj-releases"
      ; sign releases? (it's not about signing git commits here)
      :sign-releases true
      ; `sign` does not work if you must enter a pasword for the gpg key
