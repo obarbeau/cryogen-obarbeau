@@ -16,16 +16,16 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Leiningen: args4j:2.0.16" level="project" />
     <orderEntry type="library" name="Leiningen: camel-snake-kebab:0.4.0" level="project" />
-    <orderEntry type="library" name="Leiningen: cheshire:5.7.1" level="project" />
+    <orderEntry type="library" name="Leiningen: cheshire:5.8.0" level="project" />
     <orderEntry type="library" name="Leiningen: clj-rss:0.2.3" level="project" />
     <orderEntry type="library" name="Leiningen: clj-stacktrace:0.2.8" level="project" />
     <orderEntry type="library" name="Leiningen: clj-text-decoration:0.0.3" level="project" />
     <orderEntry type="library" name="Leiningen: clj-time:0.11.0" level="project" />
     <orderEntry type="library" name="Leiningen: clojure-complete:0.2.4" level="project" />
     <orderEntry type="library" name="Leiningen: clout:2.1.2" level="project" />
-    <orderEntry type="library" name="Leiningen: com.fasterxml.jackson.core/jackson-core:2.8.6" level="project" />
-    <orderEntry type="library" name="Leiningen: com.fasterxml.jackson.dataformat/jackson-dataformat-cbor:2.8.6" level="project" />
-    <orderEntry type="library" name="Leiningen: com.fasterxml.jackson.dataformat/jackson-dataformat-smile:2.8.6" level="project" />
+    <orderEntry type="library" name="Leiningen: com.fasterxml.jackson.core/jackson-core:2.9.0" level="project" />
+    <orderEntry type="library" name="Leiningen: com.fasterxml.jackson.dataformat/jackson-dataformat-cbor:2.9.0" level="project" />
+    <orderEntry type="library" name="Leiningen: com.fasterxml.jackson.dataformat/jackson-dataformat-smile:2.9.0" level="project" />
     <orderEntry type="library" name="Leiningen: com.google.code.findbugs/jsr305:1.3.9" level="project" />
     <orderEntry type="library" name="Leiningen: com.google.guava/guava:14.0.1" level="project" />
     <orderEntry type="library" name="Leiningen: com.google.javascript/closure-compiler:v20130603" level="project" />
@@ -42,7 +42,7 @@
     <orderEntry type="library" name="Leiningen: hiccup:1.0.5" level="project" />
     <orderEntry type="library" name="Leiningen: hiccups:0.3.0" level="project" />
     <orderEntry type="library" name="Leiningen: instaparse:1.4.0" level="project" />
-    <orderEntry type="library" name="Leiningen: io.aviso/pretty:0.1.33" level="project" />
+    <orderEntry type="library" name="Leiningen: io.aviso/pretty:0.1.34" level="project" />
     <orderEntry type="library" name="Leiningen: joda-time:2.9.6" level="project" />
     <orderEntry type="library" name="Leiningen: json-html:0.4.0" level="project" />
     <orderEntry type="library" name="Leiningen: markdown-clj:0.9.95" level="project" />
@@ -83,7 +83,7 @@
     <orderEntry type="library" name="Leiningen: ring/ring-jetty-adapter:1.3.2" level="project" />
     <orderEntry type="library" name="Leiningen: ring/ring-servlet:1.3.2" level="project" />
     <orderEntry type="library" name="Leiningen: ring:1.3.2" level="project" />
-    <orderEntry type="library" name="Leiningen: selmer:1.10.7" level="project" />
+    <orderEntry type="library" name="Leiningen: selmer:1.11.1" level="project" />
     <orderEntry type="library" name="Leiningen: tigris:0.1.1" level="project" />
     <orderEntry type="library" name="Leiningen: watchtower:0.1.1" level="project" />
     <orderEntry type="module" module-name="cryogen-core" />
