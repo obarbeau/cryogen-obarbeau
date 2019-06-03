@@ -8,9 +8,9 @@ Now I have Clojure.
 I still complain, for not having discovered it earlier.
 >-me
 
-I'm Olivier, and I live and work in the sweet and sour city of Paris.
+I'm Olivier, and I live and work near the sweet and sour city of Paris.
 
-Java architect for over 15 years,
+Java architect for over 20 years,
 I completely switched to Clojure some years ago
 for an ever increasing pleasure.
 

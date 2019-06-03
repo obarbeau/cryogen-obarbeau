@@ -155,7 +155,7 @@ that is shared amongst all clojure projects.
 
   ; for debugging an external REPL with eclipse or IntelliJ 
   ;:jvm-opts [(str "-agentlib:jdwp=transport=dt_socket,server=y,"
-  ;           "suspend=n,address=5005")]
+  ;           "suspend=n,address=8000")]
   
   ; common options for the JVM
   :jvm-opts ["-XX:+AggressiveOpts" "-XX:+UseCompressedOops"
