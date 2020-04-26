@@ -69,8 +69,8 @@ to change a single function without cloning the entire project.
   <script src="https://gist.github.com/obarbeau/65d7f487797d8041b6a79c15b532604f.js"></script>
 
 Finally, the day you use `intern` to define a macro, please remember:
-* to add the meta `:macro true` in the name of var
-* to add two arguments to your function, `&form` and ` env`
+- to add the meta `:macro true` in the name of var
+- to add two arguments to your function, `&form` and ` env`
   (which are not required with `defmacro`)
   otherwise you might look for a moment why
   the substitutions do not behave as expected...

@@ -34,7 +34,7 @@ when required.
 
 ### Check out updates
 
-* `xsc/lein-ancient`
+- `xsc/lein-ancient`
 
 Check for outdated dependencies and plugins.
 
@@ -55,23 +55,23 @@ for example if you have a special REPL prompt.
 
 ### Tests and benchmarks
 
-* `criterium`
+- `criterium`
 
 Benchmarks.
 
 #### 'Static code analyzers' and 'Clojure lint tools'
 
-* `jonase/kibit`, `lein-bikeshed`, `jonase/eastwood`
+- `jonase/kibit`, `lein-bikeshed`, `jonase/eastwood`
 
 `Kibit` is written with `core.logic`.
 
 A plugin for LightTable is also available: `danielribeiro/LightTableKibit`
 
-* `lein-expectations`
+- `lein-expectations`
 
 Leiningen plugin for running tests written using the expectations library.
 
-* `pedandic`
+- `pedandic`
 
 A Leiningen plugin to reject dependency graphs with common user surprises.
 I can't get the v0.0.5 to work.
@@ -80,7 +80,7 @@ I can't get the v0.0.5 to work.
 
 #### Consult
 
-* `clj-ns-browser.sdoc`
+- `clj-ns-browser.sdoc`
 
 Displays in an external browser available docs for namespaces, functions, ...
 
@@ -88,7 +88,7 @@ Can be injected in the REPL with `im.chit/vinyasa`.
 
 #### Generate
 
-* `gdeer81/lein-marginalia` et `michaelblume/lein-marginalia` (clj 1.7+)
+- `gdeer81/lein-marginalia` et `michaelblume/lein-marginalia` (clj 1.7+)
 
 Use `lein marg <options>` in the project's root directory.
 Generates `docs/uberdoc.html`.
@@ -121,7 +121,7 @@ This plugin does not work when the project's description is written as
                   "yy")
 ```
 
-* `codox`
+- `codox`
 
 Generating API documentation from Clojure source code.
 The default css is somewhat austere, blue text on gray background.
@@ -132,19 +132,19 @@ The default css is somewhat austere, blue text on gray background.
 with `MyRecord`, we automatically get `->MyRecord & map->MyRecord`.
 `(alter-meta! #'->RecordName assoc :no-doc true)`
 
-* `lein-autodoc`
+- `lein-autodoc`
 
 Generates documentation for a project.
 The v0.9 does not work well with Leiningen 2 and the v1.0 is not yet published.
 
 ### Other plugins
 
-* `clj-ns-browser`
+- `clj-ns-browser`
 
 Can be injected in the REPL with `im.chit/vinyasa`.
 Launch a complete 'explorer' of functions and var available in the namespaces.
 
-* `clj-stacktrace` and `io.aviso/pretty`
+- `clj-stacktrace` and `io.aviso/pretty`
 
 Nice exceptions with colorful stack trace.
 The stack from `aviso` is easier to read than the one from `clj-stacktrace`.
@@ -160,68 +160,68 @@ or
 to display last exception
 ```
 
-* `im.chit/vinyasa`
+- `im.chit/vinyasa`
 
 Injects functions in namespaces.
 See <http://z.caudate.me/a-more-refined-vinyasa-inject>.
 
-* `lein-autoreload`
+- `lein-autoreload`
 
 Reloads modified sources (and thus namespaces) in the REPL.
 Does not work well with ClojureScript projects
 whose sources are in `src/clj` and `src/cljs`.
 
-* `emezeske/lein-cljsbuild`
+- `emezeske/lein-cljsbuild`
 
 Leiningen plugin to make ClojureScript development easy.
 
 Mandatory for ClojureScript dev!
 
-* `the-kenny/lein-deps-tree`
+- `the-kenny/lein-deps-tree`
 
 Prints a print a nicely formatted tree of a project's dependencies.
 
 I do not really see the difference with the `lein deps: tree` command.
 Maybe the way to retrieve dependencies (aether, other)?
 
-* `lein-light-nrepl`
+- `lein-light-nrepl`
 
 Allows LightTable to communicate with an external REPL.
 Options can be specified (port, middleware, ...).
 Very useful, because I find the evaluation inside LightTable
 not very convenient for collections.
 
-* `marick/lein-midje`
+- `marick/lein-midje`
 
 Runs both Midje and clojure.test tests.
 Remark: `midje-auto` do not autoreload `cljc` files.
 
-* `lein-ns-dep-graph` et `ns-graph`
+- `lein-ns-dep-graph` et `ns-graph`
 
 Both show the namespace dependencies of Clojure project sources as a graph.
 They use Graphviz.
 
-* `lein-pdo`
+- `lein-pdo`
 
 Higher-order task to perform other tasks in parallel.
 
 Several tasks can be launched with only one command, without interblocking.
 
-* `xeqi/lein-pedantic`
+- `xeqi/lein-pedantic`
 
 Reject dependency graphs with common user surprises.
 
-* `lein-plz`
+- `lein-plz`
 
 Add Leiningen dependencies quickly to the `project.clj`.
 
 The dependencies can possibly be grouped into logical blocks.
 
-* `lein-pprint`
+- `lein-pprint`
 
 Pretty-print a representation of the project map.
 
-* `weavejester/lein-ring`
+- `weavejester/lein-ring`
 
 Manage `ring` with command line: start and stop sever, generate uberwar, ...
 
@@ -253,21 +253,21 @@ or
 lein ring uberwar ; all dependencies included
 ```
 
-* `lein-try`
+- `lein-try`
 
 To try libs without even creating a project.
 
-* `LonoCloud/lein-voom`
+- `LonoCloud/lein-voom`
 
 Helps you clean up your dependency tree.
 
 Especially useful when you have snapshot versions.
 
-* `org.timmc/nephila`
+- `org.timmc/nephila`
 
 Show a graph of your Clojure namespaces.
 
-* `slamhound`
+- `slamhound`
 
 (Re)compute automatically requires and imports.
 
@@ -282,23 +282,23 @@ but this tools can also be launched within a REPL:
 
 ## Tools
 
-* `aprint`
+- `aprint`
 
 Improved `print` display.
 
-* `taoensso.timbre`
+- `taoensso.timbre`
 
 Excellent logging library.
 Use `timbre` rather than `(def ppr #'clojure.pprint/pprint)`.
 The timbre config is shared amongst namespaces.
 
-* `daveray/seesaw`
+- `daveray/seesaw`
 
 `Seesaw` easily create everything you need for a Swing application.
 
 ## Standalone Scripts
 
-* `lein-exec`
+- `lein-exec`
 
 Add this profile the the `:user` profile in your `~/.lein/profiles.clj`
 config file.

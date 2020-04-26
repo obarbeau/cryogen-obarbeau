@@ -7,10 +7,10 @@ will display statistics in the form of tables and graphs.
 
 I am using with great pleasure the following tools:
 
-* [ring][1] for the server,
-* [compojure][2] for the  routing,
-* [hiccup][3] for dynamic generation of html pages,
-* also [simple-time][4] for handling dates,
+- [ring][1] for the server,
+- [compojure][2] for the  routing,
+- [hiccup][3] for dynamic generation of html pages,
+- also [simple-time][4] for handling dates,
   I found it to be more lightweight and concise as
   [clj-time][5].
 

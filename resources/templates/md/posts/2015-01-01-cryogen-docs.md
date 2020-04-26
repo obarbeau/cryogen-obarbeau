@@ -8,15 +8,15 @@ This intro only documents a subset of Cryogen's features. For additional documen
 
 ## Features
 
-* Blog posts and pages with Markdown (default) or AsciiDoc
-* Tags
-* Table of contents generation
-* Plain HTML page templates
-* Code syntax highlighting
-* Disqus support
-* Sitemap generation
-* RSS feed generation
-* Sass/SCSS compilation
+- Blog posts and pages with Markdown (default) or AsciiDoc
+- Tags
+- Table of contents generation
+- Plain HTML page templates
+- Code syntax highlighting
+- Disqus support
+- Sitemap generation
+- RSS feed generation
+- Sass/SCSS compilation
 
 ## Prerequisites
 
@@ -157,15 +157,15 @@ More information on deployment can be found [here](http://cryogenweb.org/docs/de
 
 ## Some Sites Made With Cryogen
 
-* [Creator's blog](http://carmenla.me/blog/index.html)
-* [Cryogen Documentation Site](http://cryogenweb.org)
-* [Yogthos' blog](http://yogthos.net/)
-* [Clojure :in Tunisia](http://www.clojure.tn)
-* [dl1ely.github.io](http://dl1ely.github.io)
-* [nil/recur](http://jonase.github.io/nil-recur)
-* [on the clojure move](http://tangrammer.github.io/)
-* [cognizance](http://blog.jethrokuan.com/)
-* [AGYNAMIX Site & Blog](http://www.agynamix.de)
-* [e-Resident Me](http://eresident.me)
-* [Chad Stovern's blog](http://www.chadstovern.com)
-* [Greative](https://greative.jp/)
+- [Creator's blog](http://carmenla.me/blog/index.html)
+- [Cryogen Documentation Site](http://cryogenweb.org)
+- [Yogthos' blog](http://yogthos.net/)
+- [Clojure :in Tunisia](http://www.clojure.tn)
+- [dl1ely.github.io](http://dl1ely.github.io)
+- [nil/recur](http://jonase.github.io/nil-recur)
+- [on the clojure move](http://tangrammer.github.io/)
+- [cognizance](http://blog.jethrokuan.com/)
+- [AGYNAMIX Site & Blog](http://www.agynamix.de)
+- [e-Resident Me](http://eresident.me)
+- [Chad Stovern's blog](http://www.chadstovern.com)
+- [Greative](https://greative.jp/)

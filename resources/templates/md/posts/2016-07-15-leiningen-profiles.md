@@ -21,7 +21,7 @@ as a continuation of our discussion when we were at [Paris's Clojure meetup][3].
 In addition to the excellent pair IntelliJ Idea + Cursive,
 some profiles for Leiningen can greatly enhance the experience of REPL.
 
-## Official documentation 
+## Official documentation
 
 The Leiningen doc about profiles is very complete and clear.
 It is available [here][1].
@@ -37,7 +37,7 @@ Leiningen provides few defaults and allows to complete with your own needs.
 
 ### Default profiles
 
-* `leiningen/default` is a compound profile, initially made of these profiles:
+- `leiningen/default` is a compound profile, initially made of these profiles:
 ```text
 :base      brings base dependencies `org.clojure/tools.nrepl`
            and `clojure-complete` (completion with the `tab` key)
@@ -49,9 +49,9 @@ Leiningen provides few defaults and allows to complete with your own needs.
   It automatically loads all the specified profiles when you launch a lein task.
   Without any additional custom configuration, the last 4 will be empty.
 
-* `leiningen/test` injects some hooks for tests.
+- `leiningen/test` injects some hooks for tests.
 
-* `update`, `offline` and `debug` are three profiles that set
+- `update`, `offline` and `debug` are three profiles that set
   the corresponding 'predicate-keyword' (eg `:debug?`)
   to `true` (ou `:always` for `update`). They should be merged whenever needed.
 
@@ -84,7 +84,7 @@ use the `'+'` character:
 This second writing is best in order to always keep `leiningen/default` active.
 <div class="alert alert-warning">
 <i class="fa fa-warning"></i>
-Beware however, this one is automatically disabled during the 
+Beware however, this one is automatically disabled during the
 `pom`, `jar` and `uberjar` tasks,
 so as not to 'pollute' dependencies and compilation.
 </div>
@@ -123,7 +123,7 @@ that is shared amongst all clojure projects.
   ; in this case, you will make a symlink from the 'target' directory
   ; to the ramdisk.
   ; Yet paths outside the project root cannot be accessed by `lein clean`,
-  ; except if we 'deprotect' them like show: 
+  ; except if we 'deprotect' them like show:
   :clean-targets ^{:protect false} [:target-path]
 
   ; it is possible to configure any options for a tool in this profile
@@ -153,10 +153,10 @@ that is shared amongst all clojure projects.
   ; shared options for compilation
   :javac-options ["-target" "1.8" "source" "1.8" "-Xlint:-options"]
 
-  ; for debugging an external REPL with eclipse or IntelliJ 
+  ; for debugging an external REPL with eclipse or IntelliJ
   ;:jvm-opts [(str "-agentlib:jdwp=transport=dt_socket,server=y,"
   ;           "suspend=n,address=8000")]
-  
+
   ; common options for the JVM
   :jvm-opts ["-XX:+AggressiveOpts" "-XX:+UseCompressedOops"
              "-XX:+OptimizeStringConcat"

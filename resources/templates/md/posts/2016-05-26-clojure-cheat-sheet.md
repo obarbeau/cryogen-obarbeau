@@ -302,8 +302,8 @@ find vec idx
 ```
   </td>
   <td>
-* if `map`, returns the map entry for key \\( k \\) or `nil` if not found.
-* if `vector`, returns entry for index \\( idx \\) or `nil` if not found.
+- if `map`, returns the map entry for key \\( k \\) or `nil` if not found.
+- if `vector`, returns entry for index \\( idx \\) or `nil` if not found.
   </td>
 </tr>
 
