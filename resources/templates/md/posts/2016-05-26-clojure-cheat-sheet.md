@@ -1,12 +1,12 @@
 {:title "Clojure core functions - Cheat Sheet"
 :layout :post
 :excerpt "My notes on classic Clojure functions."
-:tags  ["clojure"]
+:tags ["clojure"]
 :toc true
 :draft? false}
 
 Here are some useful Clojure core functions along with examples
- and MathML notation for fun.
+and MathML notation for fun.
 
 Nothing new under the sun, but these notes had been dragging on
 for a long time in my drafts, so it was time to share them!
@@ -25,6 +25,7 @@ for a long time in my drafts, so it was time to share them!
 `[:a ~(+ 1 1) ~'c d ~`e]
 ; => [:a 2 c user/d user/e]
 ```
+
   </td>
   <td>
 `Syntax quoting` brings optional `gensym` (if `#` at the end of var name.
@@ -40,6 +41,7 @@ for a long time in my drafts, so it was time to share them!
 ```clojure
 and arg (.method arg)
 ```
+
   </td>
   <td>
 Returns `nil` if arg is `nil`, otherwise execute `method` on arg.
@@ -62,6 +64,7 @@ apply f x1 ... xn c
 (+ [1 2 3]) ; error
 (apply + [1 2 3]) ; 6
 ```
+
   </td>
   <td>
 Evaluates ƒ (must not be a macro) on \\( x_n \\) arguments prepended
@@ -84,6 +87,7 @@ assoc vec idx1 v1 ... idxn vn
        :k1 "newv1" :k3 "v3")
 ; {:k3 "v3", :k1 "newv1", :k2 "v2"}
 ```
+
   </td>
   <td>
 <ul><li>applied on a `map`, returns a `map` of the same type (hashed/sorted)
@@ -107,6 +111,7 @@ assoc-in vec [k1 ... kn] v
 (assoc-in {} [:k1 :k2 :k3] "nv")
 ; {:k1 {:k2 {:k3 "nv"}}}
 ```
+
   </td>
   <td>
 Returns the same type of associative structure, with v the value of nested key
@@ -125,6 +130,7 @@ bean java-object
 (bean java.awt.Color/RED)
 ; {:red 255:transparency : 1 ...}
 ```
+
   </td>
   <td>
 Returns a `map` with all getters of the java object.
@@ -142,6 +148,7 @@ comp f1 f2 ... fn
 ((comp str +) 8 8 8) ; « 24 »
 
 ```
+
   </td>
   <td>
 Returns a function with undefined arity, applying \\( f_x \\)
@@ -160,6 +167,7 @@ concat x1 ... xn
 ; (:a :b 1 [2 3] 4)
 
 ```
+
   </td>
   <td>
 Returns a sequence including all \\( x_k \\) elements.
@@ -179,6 +187,7 @@ conj
 ; new element at the back
 (conj [1 2 3] :a) ; [1 2 3 :a]
 ```
+
   </td>
   <td>
 
@@ -194,6 +203,7 @@ constantly x
 ;; Examples
 (constantly x) 1 2 3 → x
 ```
+
   </td>
   <td>
 Returns a function with undefined arity, that always results in x.
@@ -213,6 +223,7 @@ contains? coll k
 (contains? '(1 2 3 4) 2)
 ; IllegalArgumentException
 ```
+
   </td>
   <td>
 Returns true if the **key** k is present in the **indexed** collection
@@ -234,6 +245,7 @@ defrecord
 (:b f) ; 2
 (class f) ; user.Foo p
 ```
+
   </td>
   <td>
 Optionally with implementation of protocols.
@@ -251,6 +263,7 @@ dissoc map k1 ... kn
         :lname)
 ; {:fname "John"}
 ```
+
   </td>
   <td>
 Opposite of `assoc`. Returns an associative structure
@@ -265,6 +278,7 @@ Opposite of `assoc`. Returns an associative structure
 ```clojure
 doseq dorun doall
 ```
+
   </td>
   <td>
 Force evaluation of lazy seqs (side effects).
@@ -283,6 +297,7 @@ dotimes bindings & body
 ;; Examples
 (dotimes [n 5] (println "n is" n))
 ```
+
   </td>
   <td>
 Runs body \\( n \\) times, from \\( 0 \text{ to } n-1 \\).
@@ -300,6 +315,7 @@ find vec idx
 (find {:b 2 :a 1 :c 3} :a) ; [:a 1]
 (find [:a :b :c :d] 2) ; [2 :c]
 ```
+
   </td>
   <td>
 - if `map`, returns the map entry for key \\( k \\) or `nil` if not found.
@@ -317,6 +333,7 @@ flatten
 (flatten [1 [2 3 [4 5] 6]])
 ; (1 2 3 4 5 6)
 ```
+
   </td>
   <td>
 Flattens the nested sequences.
@@ -329,6 +346,7 @@ Flattens the nested sequences.
 ```clojure
 fnil f x1 ... xn
 ```
+
   </td>
   <td>
 Returns a function that calls ƒ with \\( x_k \\)
@@ -349,6 +367,7 @@ y valy
 :when test]
 body
 ```
+
   </td>
   <td>
 « List comprehension ».
@@ -367,6 +386,7 @@ frequencies coll
 (frequencies ['a 'b 'a 'a])
 ; {a 3, b 1}
 ```
+
   </td>
   <td>
 Returns with a `map` that indicates, for each separate element of `col`,
@@ -390,6 +410,7 @@ group-by f coll
 (group-by #(< % 10) [1 2 20 21])
 ; {true [1 2] false [20 21]}
 ```
+
   </td>
   <td>
 Returns a `map` of `col` elements, sorted by the return value of ƒ applied.
@@ -407,6 +428,7 @@ interleave c1 ... cn
 (interleave [:a :b] (iterate inc 1))
 ; (:a 1 :b 2)
 ```
+
   </td>
   <td>
 Returns a sequence containing the first element of each \\( c_x \\),
@@ -420,6 +442,7 @@ Returns a sequence containing the first element of each \\( c_x \\),
 ```clojure
 interpose sep coll
 ```
+
   </td>
   <td>
 Returns a sequence of elements of the collection separated by the
@@ -445,6 +468,7 @@ into to from
 (into [1 2 3] [:a :b :c])
 ; [1 2 3 :a :b :c]
 ```
+
   </td>
   <td>
 Returns a collection of the same type than `to`, appending all elements of
@@ -463,6 +487,7 @@ iterate f x
 (iterate #(∗ 2) 2)
 ; (2 4 8 16 ...)
 ```
+
   </td>
   <td>
 ƒ must be a pure function.
@@ -482,6 +507,7 @@ juxt f 1 f2 ...
      ['(2 3) '(5 6 9)])
 ; ([3 2] [6 3])
 ```
+
   </td>
   <td>
 Returns a function that returns a `vector` whose elements are the application
@@ -502,6 +528,7 @@ keep-indexed f coll
 (map #(when (odd? %) %) (range 10))
 ; (nil 1 nil 3 nil 5 nil 7 nil 9)
 ```
+
   </td>
   <td>
 Returns a sequence made of non `nil` results of the application of ƒ
@@ -523,6 +550,7 @@ list x1 ... xn
 (list a 2 3)
 ; Exception cannot resolve a
 ```
+
   </td>
   <td>
 Returns a `list` containing all \\( x_n \\) args, possibly `nil`.
@@ -550,6 +578,7 @@ list* x1 ... xn ()
 (list* nil [1 2]) ; (nil 1 2)
 (list* 1 nil) ; (1)
 ```
+
   </td>
   <td>
 Returns a `list` containing all \\( x_n \\) args, possibly `nil`, as well as
@@ -579,6 +608,7 @@ map #(+ %%2%3) '(1 2 3)
     '(4 5 6 7 8) '(9 10 11)
 ; (14 17 20)
 ```
+
   </td>
   <td>
 Returns a sequence containing results of the application of ƒ
@@ -607,6 +637,7 @@ mapcat f c1 ... cn
 (mapcat (fn [x] (repeat x x)) [12 3])
 ; (1 2 2 3 3 3)
 ```
+
   </td>
   <td>
 Equivalent to `(apply concat (map f c1 ... cn))`.
@@ -621,6 +652,7 @@ Equivalent to `(apply concat (map f c1 ... cn))`.
 ```clojure
 memoize f
 ```
+
   </td>
   <td>
 Returns a cached version of ƒ. ƒ must be pure.
@@ -636,6 +668,7 @@ Returns a cached version of ƒ. ƒ must be pure.
 ;; Examples
 (def ^{:doc "a var"} x 10)
 ```
+
   </td>
   <td>
 Alternate docstring. Metadata does not affect equality.
@@ -648,6 +681,7 @@ Alternate docstring. Metadata does not affect equality.
 ```clojure
 or supplied-val default-val
 ```
+
   </td>
   <td>
 Returns `supplied-val` if not `nil`, otherwise `default-val`.
@@ -663,6 +697,7 @@ partial f x1 ... xn
 ;; Examples
 #(+ 1 %) ⇔ (partial + 1)
 ```
+
   </td>
   <td>
 Returns a function that takes \\( n \\) less args that what ƒ requires.
@@ -684,6 +719,7 @@ partition n step pad coll
 (partition 2 1 [1 2 3])
 ; ((1 2) (2 3))
 ```
+
   </td>
   <td>
 Returns a lazy sequence containing lists of \\( n \\) elements each.
@@ -706,6 +742,7 @@ partition-all n coll
 (partition-all 2 [1 2 3])
 ; ((1 2) (3))
 ```
+
   </td>
   <td>
 Similar to `partition`, but also builds the last `list` even if there
@@ -726,6 +763,7 @@ partition-by f coll
               [1 2 11 1])
 ; ((1 2) (11) (1))
 ```
+
   </td>
   <td>
 Similar to `partition`, but cut the list each times ƒ change its value.
@@ -759,6 +797,7 @@ reduce f val '() → val
 ```clojure
 reductions
 ```
+
   </td>
   <td>
 Returns a sequence of intermediate steps of `reduce`.
@@ -772,6 +811,7 @@ Returns a sequence of intermediate steps of `reduce`.
 repeatedly f → '(f f f ...)
 repeatedly n f → '(f f f ... n)
 ```
+
   </td>
   <td>
 ƒ should have no args, possibly impure.
@@ -786,6 +826,7 @@ repeatedly n f → '(f f f ... n)
 repeat x → '(x x x ...)
 repeat n x → '(x x x ...n)
 ```
+
   </td>
   <td>
 Returns an infinite sequence (or size n) of value x.
@@ -807,6 +848,7 @@ sequencecoll
 (sequence [1 2]) ou (seq [1 2])
 ; (1 2)
 ```
+
   </td>
   <td>
 Returns a sequence from the collection `coll`.
@@ -833,6 +875,7 @@ sort-by keyfn comp coll
           "brown" "fox"])
 ; ("the" "fox" "quick" "brown")
 ```
+
   </td>
   <td>
 Returns a sorted sequence.
@@ -849,6 +892,7 @@ split-at n coll
 (split-at 2 [:a :b :c :d :e])
 ; [(:a :b) (:c :d :e)]
 ```
+
   </td>
   <td>
 Returns a vector of `[(take n coll) (drop n coll)]`.
@@ -865,6 +909,7 @@ split-with pred coll
 (split-with (partial >= 3)
 ; [1 2 3 4 5]) [(1 2 3) (4 5)]
 ```
+
   </td>
   <td>
 Returns a vector of `[(take-while pred coll) (drop-while pred coll)]`.
@@ -881,6 +926,7 @@ take-nth n c
 (take-nth 3 '(2 5 9 6 8 9 10 11))
 ; (2 6 10)
 ```
+
   </td>
   <td>
 Takes the first and every nth elements of `c`.
@@ -893,6 +939,7 @@ Takes the first and every nth elements of `c`.
 ```clojure
 take-while pred coll
 ```
+
   </td>
   <td>
 Returns elements of `coll` as long as predicate `pred` is true.
@@ -905,6 +952,7 @@ Returns elements of `coll` as long as predicate `pred` is true.
 ```clojure
 tranpoline f & args
 ```
+
   </td>
   <td>
 Used for mutual recursion without consumming the stack.
@@ -925,6 +973,7 @@ update-in map [k1 .. kn] f & args
 ; {:name "John Doe"
 ;  :address {:zip 42}}
 ```
+
   </td>
   <td>
 Returns an associative structure identical to
@@ -941,6 +990,7 @@ Returns an associative structure identical to
 vec c → [c1 c2 ...]
 vec nil → []
 ```
+
   </td>
   <td>
 Returns a `vector` containing the elements of c.
@@ -954,6 +1004,7 @@ Returns a `vector` containing the elements of c.
 vector x1 x2 ... → [x1 x2 ...]
 vector nil → [nil]
 ```
+
   </td>
   <td>
 Returns a vector containing all arguments \\( x_\n \\).
@@ -971,6 +1022,7 @@ vector-of t & x1 ... xn
 (conj (vector-of :int 4) 1 2 3)
 ; [4 1 2 3]
 ```
+
   </td>
   <td>
 Returns a `vector` of primitive types (:int :long :float :double :byte
@@ -986,6 +1038,7 @@ zipmap keys vals → (k1 v1 ... kn vn)
 zipmap [k1 k2] [v1] → (k1 v1)
 zipmap [k] [v1 v2] → (k1 v1)
 ```
+
   </td>
   <td>
 return a `map` with the keys associated with values.
@@ -1003,6 +1056,7 @@ return a `map` with the keys associated with values.
 (keep (comp #{:a} first) [[:a] [:b]])
 ;=> (:a)
 ```
+
   </td>
   <td>
 keep = map + filter
@@ -1011,7 +1065,7 @@ keep = map + filter
 
 </table>
 
-Inspect a `map` :
+Inspect a `map`:
 
 ```clojure
 (require 'clojure.inspector)
